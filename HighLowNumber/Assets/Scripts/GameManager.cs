@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI lastNumberText;
     public TextMeshProUGUI currentNumberText;
 
-    public int lastNumber;
-    public int currentNumber;
+    private int numberIndex = 0;
 
     RandomNumber RdNumber = new RandomNumber();
 
@@ -17,24 +16,51 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         RdNumber.PrepareNumber();
-        numberRandom = RdNumber.numberBox;
-        Debug.Log("Number Count "+ numberRandom.Count);
-        PickUpNumber();       
-
-        Debug.Log("Number Count "+ numberRandom.Count);
-        PickUpNumber();  
-
-        Debug.Log("Number Count "+ RdNumber.numberBox.Count);
-        
+        numberRandom = RdNumber.numberBox;      
 
     }
 
-    public void PickUpNumber()
+    public void CheckNumber(int ButtonClick)
     {
-        if(numberRandom.Count > 0)
+        if(ButtonClick == 0)
         {
-            int PickUpNumber = numberRandom[0];
-            numberRandom.RemoveAt(0);
+            Debug.Log($"Previous Number : {numberRandom[numberIndex]} , Current Number : {numberRandom[numberIndex+1]} ");
+            if(numberRandom[numberIndex] > numberRandom[numberIndex+1])
+            {
+                Debug.Log("Correct");
+                lastNumberText.text = numberRandom[numberIndex].ToString();
+                currentNumberText.text = numberRandom[numberIndex+1].ToString();
+                numberIndex++;
+            }
+            else
+            {
+                Debug.Log("Wrong");
+                lastNumberText.text = numberRandom[numberIndex].ToString();
+                currentNumberText.text = numberRandom[numberIndex+1].ToString();
+                numberIndex++;
+            }
+        }
+
+        if(ButtonClick == 1)
+        {
+            Debug.Log($"Previous Number : {numberRandom[numberIndex]} , Current Number : {numberRandom[numberIndex+1]} ");
+            if(numberRandom[numberIndex] < numberRandom[numberIndex+1])
+            {
+                Debug.Log("Correct");
+                lastNumberText.text = numberRandom[numberIndex].ToString();
+                currentNumberText.text = numberRandom[numberIndex+1].ToString();
+                numberIndex++;
+            }
+            else
+            {
+                Debug.Log("Wrong");
+                lastNumberText.text = numberRandom[numberIndex].ToString();
+                currentNumberText.text = numberRandom[numberIndex+1].ToString();
+                numberIndex++;
+            }
+            
         }
     }
+
+
 }

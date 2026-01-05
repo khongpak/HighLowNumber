@@ -30,13 +30,14 @@ public class RandomNumber
         }
     }
 
-    public void PickUpNumber()
-    {
-        if(numberBox.Count > 0)
-        {
-            int PickUpNumber = numberBox[0];
-            numberBox.Remove(0);
-        }
-    }
+
+    // public void PickUpNumber()
+    // {
+    //     if(numberBox.Count > 0)
+    //     {
+    //         int PickUpNumber = numberBox[0];
+    //         numberBox.Remove(0);
+    //     }
+    // }
 
 }

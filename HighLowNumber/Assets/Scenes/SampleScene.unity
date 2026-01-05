@@ -468,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42, y: 287}
+  m_AnchoredPosition: {x: 42, y: 180}
   m_SizeDelta: {x: 746.8745, y: 124.3325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &410087039
@@ -1103,7 +1103,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 990309442}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1999847568}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: CheckNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &990309442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1448,7 +1460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42, y: 136}
+  m_AnchoredPosition: {x: 42, y: 73}
   m_SizeDelta: {x: 746.8745, y: 124.3325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1566830176
@@ -1784,7 +1796,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1900774965}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1999847568}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: CheckNumber
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1900774965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1904,10 +1928,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51575dd9407012d4d821b55fc1f782aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  lastNumberText: {fileID: 0}
-  currentNumberText: {fileID: 0}
-  lastNumber: 0
-  currentNumber: 0
+  lastNumberText: {fileID: 1566830176}
+  currentNumberText: {fileID: 1338937238}
+  numberRandom: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
