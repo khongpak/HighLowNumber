@@ -30,6 +30,25 @@ public class RandomNumber
         }
     }
 
+    public void PrepareNumber(int startNumber, int endNumber)
+    {
+        numberBox.Clear();
+
+        for (int i = startNumber; i<=endNumber; i++)
+        {
+            numberBox.Add(i);
+        }
+
+        for(int i = 0; i < numberBox.Count; i++)
+        {
+            int temp = numberBox[i];
+            int randomIndex = Random.Range(i, numberBox.Count);
+            numberBox[i] = numberBox[randomIndex];
+            numberBox[randomIndex] = temp;
+        }
+
+    }
+
 
     // public void PickUpNumber()
     // {

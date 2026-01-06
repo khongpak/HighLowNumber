@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI currentNumberText;
     public TextMeshProUGUI slotNumber;
 
+    public int startNumber;
+    public int endNumber;
+
     private int numberIndex = 0;
     private List<int> listNumber = new List<int>();
 
@@ -17,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        RdNumber.PrepareNumber();
+        RdNumber.PrepareNumber(startNumber,endNumber);
         numberRandom = RdNumber.numberBox;
         lastNumberText.text = numberRandom[0].ToString();
         listNumber.Add(numberRandom[0]);

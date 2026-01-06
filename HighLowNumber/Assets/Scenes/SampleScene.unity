@@ -2068,6 +2068,8 @@ MonoBehaviour:
   lastNumberText: {fileID: 1566830176}
   currentNumberText: {fileID: 1338937238}
   slotNumber: {fileID: 392908538}
+  startNumber: 0
+  endNumber: 10
   numberRandom: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
