@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI lastNumberText;
     public TextMeshProUGUI currentNumberText;
+    public TextMeshProUGUI slotNumber;
 
     private int numberIndex = 0;
+    private List<int> listNumber = new List<int>();
 
     RandomNumber RdNumber = new RandomNumber();
 
@@ -16,50 +18,62 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         RdNumber.PrepareNumber();
-        numberRandom = RdNumber.numberBox;      
+        numberRandom = RdNumber.numberBox;
+        lastNumberText.text = numberRandom[0].ToString();
+        listNumber.Add(numberRandom[0]);
+        slotNumber.text = listNumber[0].ToString();      
 
     }
 
     public void CheckNumber(int ButtonClick)
     {
-        if(ButtonClick == 0)
-        {
-            Debug.Log($"Previous Number : {numberRandom[numberIndex]} , Current Number : {numberRandom[numberIndex+1]} ");
-            if(numberRandom[numberIndex] > numberRandom[numberIndex+1])
-            {
-                Debug.Log("Correct");
-                lastNumberText.text = numberRandom[numberIndex].ToString();
-                currentNumberText.text = numberRandom[numberIndex+1].ToString();
-                numberIndex++;
-            }
-            else
-            {
-                Debug.Log("Wrong");
-                lastNumberText.text = numberRandom[numberIndex].ToString();
-                currentNumberText.text = numberRandom[numberIndex+1].ToString();
-                numberIndex++;
-            }
-        }
+        if(numberIndex != numberRandom.Count-1){
 
-        if(ButtonClick == 1)
-        {
-            Debug.Log($"Previous Number : {numberRandom[numberIndex]} , Current Number : {numberRandom[numberIndex+1]} ");
-            if(numberRandom[numberIndex] < numberRandom[numberIndex+1])
+            if(ButtonClick == 0)
             {
-                Debug.Log("Correct");
-                lastNumberText.text = numberRandom[numberIndex].ToString();
-                currentNumberText.text = numberRandom[numberIndex+1].ToString();
-                numberIndex++;
+                
+                if(numberRandom[numberIndex] > numberRandom[numberIndex+1])
+                {
+                    Debug.Log("Correct");
+                    NextNumber();
+                }
+                else
+                {
+                    Debug.Log("Wrong");
+                    NextNumber();
+                }
             }
-            else
+
+            if(ButtonClick == 1)
             {
-                Debug.Log("Wrong");
-                lastNumberText.text = numberRandom[numberIndex].ToString();
-                currentNumberText.text = numberRandom[numberIndex+1].ToString();
-                numberIndex++;
+                
+                if(numberRandom[numberIndex] < numberRandom[numberIndex+1])
+                {
+                    Debug.Log("Correct");
+                    NextNumber();
+                }
+                else
+                {
+                    Debug.Log("Wrong");
+                    NextNumber();
+                }
+                
             }
-            
+
+            listNumber.Add(numberRandom[numberIndex]);
+            slotNumber.text = slotNumber.text + " --> " + listNumber[numberIndex].ToString();
         }
+        else
+        {
+            lastNumberText.text = "End Game";
+        }
+    }
+
+    private void NextNumber()
+    {
+        lastNumberText.text = numberRandom[numberIndex].ToString();
+        currentNumberText.text = numberRandom[numberIndex+1].ToString();
+        numberIndex++;
     }
 
 
