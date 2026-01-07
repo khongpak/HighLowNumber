@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             }
 
             listNumber.Add(numberRandom[numberIndex]);
-            slotNumberText.text = slotNumberText.text + " --> " + listNumber[numberIndex].ToString();
+            slotNumberText.text = slotNumberText.text + " " + listNumber[numberIndex].ToString();
         }
         else
         {
