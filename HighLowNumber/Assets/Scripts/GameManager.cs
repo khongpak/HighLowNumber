@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI lastNumberText;
     public TextMeshProUGUI currentNumberText;
-    public TextMeshProUGUI slotNumber;
+    public TextMeshProUGUI slotNumberText;
+    public TextMeshProUGUI healthText;
 
     public int startNumber;
     public int endNumber;
+    public int health = 3;
 
     private int numberIndex = 0;
     private List<int> listNumber = new List<int>();
@@ -24,13 +26,15 @@ public class GameManager : MonoBehaviour
         numberRandom = RdNumber.numberBox;
         lastNumberText.text = numberRandom[0].ToString();
         listNumber.Add(numberRandom[0]);
-        slotNumber.text = listNumber[0].ToString();      
+        slotNumberText.text = listNumber[0].ToString();
+
+        healthText.text = health.ToString();      
 
     }
 
     public void CheckNumber(int ButtonClick)
     {
-        if(numberIndex != numberRandom.Count-1){
+        if(numberIndex != numberRandom.Count-1 && health > 0){
 
             if(ButtonClick == 0)
             {
@@ -44,6 +48,8 @@ public class GameManager : MonoBehaviour
                 {
                     Debug.Log("Wrong");
                     NextNumber();
+                    health--;
+                    healthText.text = health.ToString();
                 }
             }
 
@@ -59,12 +65,14 @@ public class GameManager : MonoBehaviour
                 {
                     Debug.Log("Wrong");
                     NextNumber();
+                    health--;
+                    healthText.text = health.ToString();
                 }
                 
             }
 
             listNumber.Add(numberRandom[numberIndex]);
-            slotNumber.text = slotNumber.text + " --> " + listNumber[numberIndex].ToString();
+            slotNumberText.text = slotNumberText.text + " --> " + listNumber[numberIndex].ToString();
         }
         else
         {
