@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public AudioManager audioManager;
+
     public TextMeshProUGUI lastNumberText;
     public TextMeshProUGUI currentNumberText;
     public TextMeshProUGUI slotNumberText;
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
         lastNumberText.text = numberRandom[0].ToString();
         listNumber.Add(numberRandom[0]);
         slotNumberText.text = listNumber[0].ToString();
+
+        audioManager.PlayBGMAudio();
   
 
     }
@@ -37,15 +41,16 @@ public class GameManager : MonoBehaviour
 
             if(ButtonClick == 0)
             {
-                
                 if(numberRandom[numberIndex] > numberRandom[numberIndex+1])
                 {
                     Debug.Log("Correct");
+                    audioManager.PlayCorrectAnswer();
                     NextNumber();
                 }
                 else
                 {
                     Debug.Log("Wrong");
+                    audioManager.PlayWrongAnswer();
                     NextNumber();
                     heart[0].gameObject.SetActive(false);
                     heart.RemoveAt(0);
@@ -54,15 +59,16 @@ public class GameManager : MonoBehaviour
 
             if(ButtonClick == 1)
             {
-                
                 if(numberRandom[numberIndex] < numberRandom[numberIndex+1])
                 {
                     Debug.Log("Correct");
+                    audioManager.PlayCorrectAnswer();
                     NextNumber();
                 }
                 else
                 {
                     Debug.Log("Wrong");
+                    audioManager.PlayWrongAnswer();
                     NextNumber();
                     heart[0].gameObject.SetActive(false);
                     heart.RemoveAt(0);

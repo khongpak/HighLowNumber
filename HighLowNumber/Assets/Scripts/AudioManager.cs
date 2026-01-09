@@ -4,21 +4,33 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+
+    [Header("AudioClip")]
     public List<AudioClip> bgmAudioClip = new List<AudioClip>();
-    public List<AudioClip> effectAudioClip = new List<AudioClip>();
-    private AudioSource audioSource;
+    public AudioClip correctAnswer;
+    public AudioClip wrongAnswer;
+    public AudioClip WinGame;
+    public AudioClip LostGame;
 
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        PlayBGMAudio();
-    }
+    [Header("AudioSource")]
+    public AudioSource audioBGM;
+    public AudioSource audioEffect;
 
-    private void PlayBGMAudio()
+    public void PlayBGMAudio()
     {
         int randomIndex = Random.Range(0, bgmAudioClip.Count-1);
-        audioSource.clip = bgmAudioClip[randomIndex];
-        audioSource.Play();
-        audioSource.loop = true;
+        audioBGM.clip = bgmAudioClip[randomIndex];
+        audioBGM.Play();
+        audioBGM.loop = true;
+    }
+
+    public void PlayCorrectAnswer()
+    {
+        audioEffect.PlayOneShot(correctAnswer);
+    }
+
+    public void PlayWrongAnswer()
+    {
+        audioEffect.PlayOneShot(wrongAnswer);
     }
 }

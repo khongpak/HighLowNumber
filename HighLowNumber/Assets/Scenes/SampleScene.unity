@@ -758,7 +758,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -215.56781, y: 0, z: -82.492676, w: -38.562256}
+  m_margin: {x: -215.56781, y: -17.333069, z: -82.492676, w: -62.82837}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1987,6 +1987,7 @@ GameObject:
   - component: {fileID: 1578356687}
   - component: {fileID: 1578356686}
   - component: {fileID: 1578356688}
+  - component: {fileID: 1578356689}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -2014,7 +2015,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0e2b10985583d9b469ff95f2fa4566dc, type: 3}
   - {fileID: 8300000, guid: 16f5f58865a757a498ce7ff0a502e7b3, type: 3}
   - {fileID: 8300000, guid: e93cdbe79a3d6e442852f9aa655ff581, type: 3}
-  effectAudioClip: []
+  correctAnswer: {fileID: 8300000, guid: 36f79784894541048b2fadd93aa3f2c3, type: 3}
+  wrongAnswer: {fileID: 8300000, guid: 1d46c5d8dbd64f54b91513834502c1fb, type: 3}
+  WinGame: {fileID: 8300000, guid: 2d94f151c0af9594999527ec4d2d1640, type: 3}
+  LostGame: {fileID: 8300000, guid: 13857aba531e4a74ca51b6ebad3f3443, type: 3}
+  audioBGM: {fileID: 1578356688}
+  audioEffect: {fileID: 1578356689}
 --- !u!4 &1578356687
 Transform:
   m_ObjectHideFlags: 0
@@ -2043,7 +2049,104 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1578356689
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578356684}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2495,11 +2598,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51575dd9407012d4d821b55fc1f782aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  audioManager: {fileID: 1578356686}
   lastNumberText: {fileID: 1566830176}
   currentNumberText: {fileID: 1338937238}
   slotNumberText: {fileID: 392908538}
   startNumber: 0
-  endNumber: 10
+  endNumber: 20
   numberRandom: 
   heart:
   - {fileID: 2031651768}
