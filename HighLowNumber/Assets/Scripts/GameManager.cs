@@ -93,5 +93,9 @@ public class GameManager : MonoBehaviour
         numberIndex++;
     }
 
+    private void CheckWin()
+    {
+        
+    }
 
 }
