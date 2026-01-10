@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI currentNumberText;
     public TextMeshProUGUI slotNumberText;
 
+    public Button highButton;
+    public Button lowButton;
+    public Button restartButton;
+    public Button nextButton;
+
     public int startNumber;
     public int endNumber;
 
@@ -21,6 +26,12 @@ public class GameManager : MonoBehaviour
 
     public List<int> numberRandom = new List<int>();
     public List<Image> heart = new List<Image>();
+
+    void Awake()
+    {
+        restartButton.gameObject.SetActive(false);
+        nextButton.gameObject.SetActive(false);
+    }
 
     public void Start()
     {
@@ -33,6 +44,11 @@ public class GameManager : MonoBehaviour
         audioManager.PlayBGMAudio();
   
 
+    }
+
+    void Update()
+    {
+        CheckWin();    
     }
 
     public void CheckNumber(int ButtonClick)
@@ -95,6 +111,24 @@ public class GameManager : MonoBehaviour
 
     private void CheckWin()
     {
+        if(numberIndex >= numberRandom.Count-1 && heart.Count > 0)
+        {
+            Debug.Log("You Win!");
+            highButton.gameObject.SetActive(false);
+            lowButton.gameObject.SetActive(false);
+            lastNumberText.text = "You Win";
+            nextButton.gameObject.SetActive(true);
+        }
+
+        if(numberIndex < numberRandom.Count-1 && heart.Count <= 0)
+        {
+            Debug.Log("You Lost");
+            highButton.gameObject.SetActive(false);
+            lowButton.gameObject.SetActive(false);
+            lastNumberText.text = "Game Over";
+            restartButton.gameObject.SetActive(true);
+        }
+
         
     }
 
