@@ -9,12 +9,18 @@ public class AudioManager : MonoBehaviour
     public List<AudioClip> bgmAudioClip = new List<AudioClip>();
     public AudioClip correctAnswer;
     public AudioClip wrongAnswer;
-    public AudioClip WinGame;
-    public AudioClip LostGame;
+    public AudioClip winGame;
+    public AudioClip lostGame;
 
     [Header("AudioSource")]
     public AudioSource audioBGM;
     public AudioSource audioEffect;
+
+    private void Start()
+    {
+        audioBGM.volume = 0.3f;
+        audioEffect.volume = 0.3f;
+    }
 
     public void PlayBGMAudio()
     {
@@ -32,5 +38,19 @@ public class AudioManager : MonoBehaviour
     public void PlayWrongAnswer()
     {
         audioEffect.PlayOneShot(wrongAnswer);
+    }
+
+    public void PlayWinGame()
+    {
+        audioEffect.volume = 1.0f;
+        audioBGM.Stop();
+        audioEffect.PlayOneShot(winGame);
+    }
+
+    public void PlayLostGame()
+    {
+        audioEffect.volume = 1.0f;
+        audioBGM.Stop();
+        audioEffect.PlayOneShot(lostGame);
     }
 }

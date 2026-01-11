@@ -2,9 +2,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public string nextScene;
     public AudioManager audioManager;
 
     public TextMeshProUGUI lastNumberText;
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private int numberIndex = 0;
     private List<int> listNumber = new List<int>();
+    private bool soundEffectPlayed = false;
 
     RandomNumber RdNumber = new RandomNumber();
 
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
         slotNumberText.text = listNumber[0].ToString();
 
         audioManager.PlayBGMAudio();
+        soundEffectPlayed = false;
   
 
     }
@@ -118,18 +122,40 @@ public class GameManager : MonoBehaviour
             lowButton.gameObject.SetActive(false);
             lastNumberText.text = "You Win";
             nextButton.gameObject.SetActive(true);
+
+            if (!soundEffectPlayed)
+            {
+                audioManager.PlayWinGame();
+                soundEffectPlayed = true;
+            }
         }
 
         if(numberIndex < numberRandom.Count-1 && heart.Count <= 0)
         {
             Debug.Log("You Lost");
+            
             highButton.gameObject.SetActive(false);
             lowButton.gameObject.SetActive(false);
             lastNumberText.text = "Game Over";
             restartButton.gameObject.SetActive(true);
+
+            if (!soundEffectPlayed)
+            {
+                audioManager.PlayLostGame();
+                soundEffectPlayed = true;
+            }
         }
 
-        
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(nextScene);
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }

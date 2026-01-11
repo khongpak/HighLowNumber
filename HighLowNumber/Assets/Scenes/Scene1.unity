@@ -1847,7 +1847,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1220310373}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1999847568}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1247781917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,7 +2018,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1325709086}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1999847568}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1338937236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,8 +2555,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e93cdbe79a3d6e442852f9aa655ff581, type: 3}
   correctAnswer: {fileID: 8300000, guid: 36f79784894541048b2fadd93aa3f2c3, type: 3}
   wrongAnswer: {fileID: 8300000, guid: 1d46c5d8dbd64f54b91513834502c1fb, type: 3}
-  WinGame: {fileID: 8300000, guid: 2d94f151c0af9594999527ec4d2d1640, type: 3}
-  LostGame: {fileID: 8300000, guid: 13857aba531e4a74ca51b6ebad3f3443, type: 3}
+  winGame: {fileID: 8300000, guid: 2d94f151c0af9594999527ec4d2d1640, type: 3}
+  lostGame: {fileID: 8300000, guid: 13857aba531e4a74ca51b6ebad3f3443, type: 3}
   audioBGM: {fileID: 1578356688}
   audioEffect: {fileID: 1578356689}
 --- !u!4 &1578356687
@@ -3114,6 +3138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51575dd9407012d4d821b55fc1f782aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  nextScene: Scene2
   audioManager: {fileID: 1578356686}
   lastNumberText: {fileID: 1566830176}
   currentNumberText: {fileID: 1338937238}
